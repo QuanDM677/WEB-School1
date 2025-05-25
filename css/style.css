@@ -12,7 +12,7 @@
 
 /* Header nằm trong container */
 .container .header{
-    background-image: url("img/Ảnh học sinh.png"); /* Đặt ảnh nền cho header */
+    background-image: url("img/anhhocsinh.png"); /* Đặt ảnh nền cho header */
     height: 231px;           /* Chiều cao cố định */
     background-repeat: no-repeat; /* Không lặp lại hình nền */
     position: relative;      /* Cho phép dùng position absolute bên trong */
