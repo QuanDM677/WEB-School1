@@ -1,0 +1,193 @@
+/* Reset tất cả margin và padding mặc định của mọi phần tử */
+*{
+    margin: 0;        /* Xóa khoảng cách bên ngoài */
+    padding: 0;       /* Xóa khoảng cách bên trong */
+}
+
+/* Phần tử container chính - khung nội dung bao toàn trang */
+.container{
+    width: 1000px;    /* Chiều rộng cố định là 1000px */
+    margin: 0 auto;   /* Canh giữa container theo chiều ngang */
+}
+
+/* Header nằm trong container */
+.container .header{
+    background-image: url(/img/Ảnh\ học\ sinh.png); /* Đặt ảnh nền cho header */
+    height: 231px;           /* Chiều cao cố định */
+    background-repeat: no-repeat; /* Không lặp lại hình nền */
+    position: relative;      /* Cho phép dùng position absolute bên trong */
+}
+
+/* Hình ảnh con trong header */
+.container .header img{
+    position: absolute;  /* Đặt ảnh theo vị trí tuyệt đối trong header */
+    top: 10px;            /* Cách lề trên 10px */
+    left: 10px;           /* Cách lề trái 10px */
+    height: 85%;          /* Chiều cao ảnh bằng 85% chiều cao phần tử cha */
+}
+
+/* Thanh menu ngang */
+.menu{
+    min-height: 40px;            /* Chiều cao tối thiểu */
+    background-color: #8DD8F7;   /* Màu nền xanh nhạt */
+}
+
+/* Danh sách menu cấp 1 */
+.menu ul{
+    list-style: none;            /* Bỏ dấu chấm đầu dòng */
+    background-color: #8DD8F7;   /* Màu nền giống menu */
+    text-align: center;          /* Canh giữa nội dung */
+    border-radius: 5px;          /* Bo tròn góc */
+}
+
+/* Từng mục menu cấp 1 */
+.menu ul li{
+    display: inline-block;   /* Hiển thị các mục cạnh nhau (ngang) */
+    position: relative;      /* Làm cha cho menu con */
+}
+
+/* Liên kết trong menu cấp 1 */
+.menu ul li a{
+    display: block;             /* Cho phép padding, margin hoạt động đúng */
+    text-decoration: none;      /* Bỏ gạch chân */
+    font-variant: small-caps;   /* Chuyển chữ thường thành chữ hoa nhỏ */
+    font-size: large;           /* Tăng cỡ chữ */
+    color: white;               /* Màu chữ trắng */
+    padding: 0 10px;            /* Padding trái phải 10px */
+    line-height: 40px;          /* Căn giữa theo chiều dọc */
+}
+
+/* Hiệu ứng hover cho liên kết menu cấp 1 */
+.menu ul li a:hover{
+    background-color: yellow;       /* Màu nền vàng khi rê chuột */
+    text-shadow: 0 0 2px red;       /* Đổ bóng đỏ cho chữ */
+}
+
+/* Menu con (dropdown) */
+.menu ul ul{
+    position: absolute;            /* Định vị tuyệt đối so với li cha */
+    display: none;                 /* Ẩn ban đầu */
+    list-style: none;             /* Bỏ dấu đầu dòng */
+    width: 200px;                 /* Chiều rộng cố định */
+    box-shadow: 0 0 2px gray;     /* Đổ bóng khung */
+    background-color: white;      /* Nền trắng */
+    border-radius: 3px;           /* Bo góc nhẹ */
+    text-align: left;             /* Căn trái nội dung */
+}
+
+/* Các mục con bên trong menu con */
+.menu ul ul li{
+    display: block;   /* Hiển thị dạng khối (dọc) */
+}
+
+/* Liên kết bên trong menu con */
+.menu ul ul a{
+    display: block;             /* Cho phép padding hoạt động đúng */
+    color: blue;                /* Màu chữ xanh */
+    text-decoration: none;      /* Bỏ gạch chân */
+    font-size: large;           /* Cỡ chữ lớn */
+    font-variant: small-caps;   /* Chữ hoa nhỏ */
+    padding: 0 10px;            /* Padding trái phải 10px */
+    line-height: 30px;          /* Chiều cao dòng */
+    z-index: 1000;              /* Ưu tiên hiển thị trên cùng */
+}
+
+/* Hover menu con */
+.menu ul ul a:hover{
+    color: white;                   /* Chữ màu trắng */
+    background-color: #8DD8F7;      /* Nền xanh nhạt */
+}
+
+/* Khi rê chuột vào mục cha thì hiện menu con */
+.menu ul li:hover ul{
+    display: block;
+}
+
+/* Dòng chữ chạy marquee */
+marquee{
+    line-height: 25px;   /* Chiều cao dòng chữ */
+    min-height: 25px;    /* Chiều cao tối thiểu */
+    z-index: -1;         /* Cho về sau nếu chồng lên phần khác */
+}
+
+/* Phần thân nội dung */
+.content{
+    width: 100%;           /* Chiếm toàn bộ chiều ngang */
+    height: auto;          /* Chiều cao tự động theo nội dung */
+    min-height: 800px;     /* Chiều cao tối thiểu */
+    margin-bottom: 10px;   /* Cách phần dưới 10px */
+}
+
+/* Nội dung chính bên trái */
+.content article{
+    width: 75%;                     /* Chiếm 75% chiều ngang */
+    float: left;                    /* Canh trái */
+    background-color: lightblue;   /* Nền xanh nhạt */
+    min-height: 800px;             /* Chiều cao tối thiểu */
+}
+
+/* Iframe hiển thị trang trong article */
+.content article iframe[name=page]{
+    width: 100%;     /* Chiếm toàn bộ chiều ngang của article */
+    height: 800px;   /* Chiều cao cố định */
+}
+
+/* Nội dung bên phải (aside) */
+.content aside{
+    width: 25%;                        /* Chiếm 25% còn lại */
+    float: right;                      /* Canh phải */
+    background-color: lightgoldenrodyellow; /* Nền vàng nhạt */
+    min-height: 800px;                /* Chiều cao tối thiểu */
+}
+
+/* Lịch làm việc dùng class lichlv + widthR để giãn đầy */
+.lichlv .widthR{
+    width: 100%;   /* Chiếm toàn bộ chiều ngang của aside */
+}
+
+/* Danh sách các mục lịch làm việc */
+.lichlv ul{
+    list-style: none;  /* Bỏ dấu đầu dòng */
+}
+
+/* Các liên kết trong lịch làm việc */
+.lichlv ul a{
+    display: block;                          /* Hiển thị dạng khối */
+    background-image: url("/img/check.png"); /* Ảnh nền là icon check */
+    background-size: 15px;                   /* Cỡ icon */
+    background-position: 10px center;        /* Căn icon sang trái 10px, dọc giữa */
+    background-repeat: no-repeat;            /* Không lặp lại icon */
+    padding: 5px 40px;                       /* Padding trên dưới 5px, trái phải 40px */
+    text-decoration: none;                   /* Bỏ gạch chân */
+}
+
+/* Hover lịch làm việc */
+.lichlv ul a:hover{
+    color: yellow;                           /* Màu chữ vàng */
+    text-shadow: 0 0 2px red;                /* Bóng đỏ chữ */
+    background-image: url("/img/next.png");/* Đổi icon thành "next" khi hover */
+    background-size: 15px;                   /* Cỡ icon mới */
+    background-position: 10px center;
+    background-repeat: no-repeat;
+}
+
+/* Ảnh trong phần aside (widthR) */
+.widthR img{
+    width: 100%;       /* Giãn đầy chiều ngang */
+    padding: 10px 0;   /* Padding trên dưới 10px */
+}
+
+/* Hiệu ứng đổ bóng khi hover ảnh */
+.widthR img:hover{
+    box-shadow: 0 5px 5px gray;  /* Đổ bóng xuống dưới */
+}
+
+/* Footer cuối trang */
+footer{
+    clear: both;               /* Dọn float để footer nằm dưới */
+    min-height: 50px;          /* Chiều cao tối thiểu */
+    background-color: lightcyan; /* Nền xanh nhạt */
+    text-align: center;        /* Căn giữa chữ */
+    line-height: 50px;         /* Căn giữa theo chiều dọc */
+    border-top: #8DD8F7;       /* Đường viền trên màu xanh nhạt */
+}
