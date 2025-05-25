@@ -12,7 +12,7 @@
 
 /* Header nằm trong container */
 .container .header{
-    background-image: url("img/anhhocsinh.png"); /* Đặt ảnh nền cho header */
+    background-image: url("../img/anhhocsinh.png"); /* Đặt ảnh nền cho header */
     height: 231px;           /* Chiều cao cố định */
     background-repeat: no-repeat; /* Không lặp lại hình nền */
     position: relative;      /* Cho phép dùng position absolute bên trong */
@@ -153,7 +153,7 @@ marquee{
 /* Các liên kết trong lịch làm việc */
 .lichlv ul a{
     display: block;                          /* Hiển thị dạng khối */
-    background-image: url("img/check.png"); /* Ảnh nền là icon check */
+    background-image: url("../img/check.png"); /* Ảnh nền là icon check */
     background-size: 15px;                   /* Cỡ icon */
     background-position: 10px center;        /* Căn icon sang trái 10px, dọc giữa */
     background-repeat: no-repeat;            /* Không lặp lại icon */
@@ -165,7 +165,7 @@ marquee{
 .lichlv ul a:hover{
     color: yellow;                           /* Màu chữ vàng */
     text-shadow: 0 0 2px red;                /* Bóng đỏ chữ */
-    background-image: url("img/next.png");/* Đổi icon thành "next" khi hover */
+    background-image: url("../img/next.png");/* Đổi icon thành "next" khi hover */
     background-size: 15px;                   /* Cỡ icon mới */
     background-position: 10px center;
     background-repeat: no-repeat;
