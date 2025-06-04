@@ -1,193 +1,272 @@
-/* Reset tất cả margin và padding mặc định của mọi phần tử */
-*{
-    margin: 0;        /* Xóa khoảng cách bên ngoài */
-    padding: 0;       /* Xóa khoảng cách bên trong */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
-/* Phần tử container chính - khung nội dung bao toàn trang */
-.container{
-    width: 1000px;    /* Chiều rộng cố định là 1000px */
-    margin: 0 auto;   /* Canh giữa container theo chiều ngang */
+/* Container */
+.container {
+    width: 1000px;
+    margin: 30px auto 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
 }
 
-/* Header nằm trong container */
-.container .header{
-    background-image: url("../img/anhhocsinh.png"); /* Đặt ảnh nền cho header */
-    height: 231px;           /* Chiều cao cố định */
-    background-repeat: no-repeat; /* Không lặp lại hình nền */
-    position: relative;      /* Cho phép dùng position absolute bên trong */
+/* Header */
+.container .header {
+    background-image: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18)), url("../img/anhhocsinh.png");
+    background-size: cover;
+    background-position: center;
+    height: 231px;
+    position: relative;
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
-/* Hình ảnh con trong header */
-.container .header img{
-    position: absolute;  /* Đặt ảnh theo vị trí tuyệt đối trong header */
-    top: 10px;            /* Cách lề trên 10px */
-    left: 10px;           /* Cách lề trái 10px */
-    height: 85%;          /* Chiều cao ảnh bằng 85% chiều cao phần tử cha */
+.container .header img {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.14);
+    background: #fff;
+    object-fit: cover;
 }
 
-/* Thanh menu ngang */
-.menu{
-    min-height: 40px;            /* Chiều cao tối thiểu */
-    background-color: #8DD8F7;   /* Màu nền xanh nhạt */
+/* Menu */
+.menu {
+    min-height: 48px;
+    background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+    box-shadow: 0 3px 14px rgba(33,150,243,0.07);
 }
 
-/* Danh sách menu cấp 1 */
-.menu ul{
-    list-style: none;            /* Bỏ dấu chấm đầu dòng */
-    background-color: #8DD8F7;   /* Màu nền giống menu */
-    text-align: center;          /* Canh giữa nội dung */
-    border-radius: 5px;          /* Bo tròn góc */
+.menu ul {
+    list-style: none;
+    background: transparent;
+    text-align: center;
+    border-radius: 0 0 7px 7px;
+    padding: 0 0 0 0;
 }
 
-/* Từng mục menu cấp 1 */
-.menu ul li{
-    display: inline-block;   /* Hiển thị các mục cạnh nhau (ngang) */
-    position: relative;      /* Làm cha cho menu con */
+.menu ul li {
+    display: inline-block;
+    position: relative;
+    margin: 0 8px;
 }
 
-/* Liên kết trong menu cấp 1 */
-.menu ul li a{
-    display: block;             /* Cho phép padding, margin hoạt động đúng */
-    text-decoration: none;      /* Bỏ gạch chân */
-    font-variant: small-caps;   /* Chuyển chữ thường thành chữ hoa nhỏ */
-    font-size: large;           /* Tăng cỡ chữ */
-    color: white;               /* Màu chữ trắng */
-    padding: 0 10px;            /* Padding trái phải 10px */
-    line-height: 40px;          /* Căn giữa theo chiều dọc */
+.menu ul li a {
+    display: block;
+    text-decoration: none;
+    font-variant: small-caps;
+    font-size: 20px;
+    color: #fff;
+    padding: 0 20px;
+    line-height: 48px;
+    border-radius: 6px;
+    transition: all 0.22s cubic-bezier(.4,0,.2,1);
+    letter-spacing: 1px;
+    font-weight: 500;
 }
 
-/* Hiệu ứng hover cho liên kết menu cấp 1 */
-.menu ul li a:hover{
-    background-color: yellow;       /* Màu nền vàng khi rê chuột */
-    text-shadow: 0 0 2px red;       /* Đổ bóng đỏ cho chữ */
+.menu ul li a:hover, .menu ul li.active > a {
+    background: #ffeb3b;
+    color: #1976d2;
+    box-shadow: 0 4px 16px rgba(255,235,59,0.13);
+    text-shadow: 0 1px 4px #1976d2;
+    transform: translateY(-3px) scale(1.05);
 }
 
-/* Menu con (dropdown) */
-.menu ul ul{
-    position: absolute;            /* Định vị tuyệt đối so với li cha */
-    display: none;                 /* Ẩn ban đầu */
-    list-style: none;             /* Bỏ dấu đầu dòng */
-    width: 200px;                 /* Chiều rộng cố định */
-    box-shadow: 0 0 2px gray;     /* Đổ bóng khung */
-    background-color: white;      /* Nền trắng */
-    border-radius: 3px;           /* Bo góc nhẹ */
-    text-align: left;             /* Căn trái nội dung */
+/* Dropdown menu */
+.menu ul ul {
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 210px;
+    box-shadow: 0 4px 22px rgba(33,150,243,0.13);
+    background: #fff;
+    border-radius: 8px;
+    text-align: left;
+    top: 44px;
+    left: 0;
+    z-index: 10;
+    animation: fadeIn .22s;
 }
 
-/* Các mục con bên trong menu con */
-.menu ul ul li{
-    display: block;   /* Hiển thị dạng khối (dọc) */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px);}
+  to   { opacity: 1; transform: translateY(0);}
 }
 
-/* Liên kết bên trong menu con */
-.menu ul ul a{
-    display: block;             /* Cho phép padding hoạt động đúng */
-    color: blue;                /* Màu chữ xanh */
-    text-decoration: none;      /* Bỏ gạch chân */
-    font-size: large;           /* Cỡ chữ lớn */
-    font-variant: small-caps;   /* Chữ hoa nhỏ */
-    padding: 0 10px;            /* Padding trái phải 10px */
-    line-height: 30px;          /* Chiều cao dòng */
-    z-index: 1000;              /* Ưu tiên hiển thị trên cùng */
+.menu ul ul li {
+    display: block;
+    margin: 0;
 }
 
-/* Hover menu con */
-.menu ul ul a:hover{
-    color: white;                   /* Chữ màu trắng */
-    background-color: #8DD8F7;      /* Nền xanh nhạt */
+.menu ul ul a {
+    color: #1976d2;
+    font-size: 17px;
+    padding: 10px 18px;
+    border-radius: 6px;
+    background: transparent;
+    transition: all 0.18s;
 }
 
-/* Khi rê chuột vào mục cha thì hiện menu con */
-.menu ul li:hover ul{
+.menu ul ul a:hover {
+    color: #fff;
+    background: #4fc3f7;
+    box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+}
+
+.menu ul li:hover > ul {
     display: block;
 }
 
-/* Dòng chữ chạy marquee */
-marquee{
-    line-height: 25px;   /* Chiều cao dòng chữ */
-    min-height: 25px;    /* Chiều cao tối thiểu */
-    z-index: -1;         /* Cho về sau nếu chồng lên phần khác */
+/* Marquee */
+marquee {
+    line-height: 26px;
+    min-height: 26px;
+    font-size: 16px;
+    background: #e3f2fd;
+    color: #1976d2;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(33,150,243,0.06);
+    border-radius: 0 0 12px 12px;
+    margin-bottom: 18px;
 }
 
-/* Phần thân nội dung */
-.content{
-    width: 100%;           /* Chiếm toàn bộ chiều ngang */
-    height: auto;          /* Chiều cao tự động theo nội dung */
-    min-height: 800px;     /* Chiều cao tối thiểu */
-    margin-bottom: 10px;   /* Cách phần dưới 10px */
+/* Content */
+.content {
+    width: 100%;
+    min-height: 800px;
+    display: flex;
+    gap: 18px;
+    padding: 20px 22px 30px 22px;
+    background: #f7fbfc;
 }
 
-/* Nội dung chính bên trái */
-.content article{
-    width: 75%;                     /* Chiếm 75% chiều ngang */
-    float: left;                    /* Canh trái */
-    background-color: lightblue;   /* Nền xanh nhạt */
-    min-height: 800px;             /* Chiều cao tối thiểu */
+/* Article */
+.content article {
+    width: 74%;
+    background: #e3f2fd;
+    border-radius: 11px;
+    min-height: 800px;
+    box-shadow: 0 2px 9px rgba(33,150,243,0.07);
+    padding: 20px;
+    transition: box-shadow 0.18s;
 }
 
-/* Iframe hiển thị trang trong article */
-.content article iframe[name=page]{
-    width: 100%;     /* Chiếm toàn bộ chiều ngang của article */
-    height: 800px;   /* Chiều cao cố định */
+.content article:hover {
+    box-shadow: 0 8px 32px rgba(33,150,243,0.14);
 }
 
-/* Nội dung bên phải (aside) */
-.content aside{
-    width: 25%;                        /* Chiếm 25% còn lại */
-    float: right;                      /* Canh phải */
-    background-color: lightgoldenrodyellow; /* Nền vàng nhạt */
-    min-height: 800px;                /* Chiều cao tối thiểu */
+/* iframe */
+.content article iframe[name=page] {
+    width: 100%;
+    height: 800px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 3px 16px rgba(33,150,243,0.10);
 }
 
-/* Lịch làm việc dùng class lichlv + widthR để giãn đầy */
-.lichlv .widthR{
-    width: 100%;   /* Chiếm toàn bộ chiều ngang của aside */
+/* Aside */
+.content aside {
+    width: 26%;
+    min-height: 800px;
+    background: #fffde7;
+    border-radius: 11px;
+    box-shadow: 0 2px 10px rgba(255,193,7,0.10);
+    padding: 20px;
+    transition: box-shadow 0.18s;
 }
 
-/* Danh sách các mục lịch làm việc */
-.lichlv ul{
-    list-style: none;  /* Bỏ dấu đầu dòng */
+.content aside:hover {
+    box-shadow: 0 8px 28px rgba(255,193,7,0.16);
 }
 
-/* Các liên kết trong lịch làm việc */
-.lichlv ul a{
-    display: block;                          /* Hiển thị dạng khối */
-    background-image: url("../img/check.png"); /* Ảnh nền là icon check */
-    background-size: 15px;                   /* Cỡ icon */
-    background-position: 10px center;        /* Căn icon sang trái 10px, dọc giữa */
-    background-repeat: no-repeat;            /* Không lặp lại icon */
-    padding: 5px 40px;                       /* Padding trên dưới 5px, trái phải 40px */
-    text-decoration: none;                   /* Bỏ gạch chân */
+/* Lich làm việc */
+.lichlv .widthR {
+    width: 100%;
 }
 
-/* Hover lịch làm việc */
-.lichlv ul a:hover{
-    color: yellow;                           /* Màu chữ vàng */
-    text-shadow: 0 0 2px red;                /* Bóng đỏ chữ */
-    background-image: url("../img/next.png");/* Đổi icon thành "next" khi hover */
-    background-size: 15px;                   /* Cỡ icon mới */
-    background-position: 10px center;
+.lichlv ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lichlv ul a {
+    display: block;
+    background-image: url("../img/check.png");
+    background-size: 19px;
+    background-position: 12px center;
     background-repeat: no-repeat;
+    padding: 8px 40px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 6px;
+    margin-bottom: 7px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background .18s, color .18s, box-shadow .18s;
 }
 
-/* Ảnh trong phần aside (widthR) */
-.widthR img{
-    width: 100%;       /* Giãn đầy chiều ngang */
-    padding: 10px 0;   /* Padding trên dưới 10px */
+.lichlv ul a:hover {
+    color: #fff;
+    text-shadow: 0 0 2px #ff9800;
+    background-image: url("../img/next.png");
+    background-color: #ff9800;
+    box-shadow: 0 2px 8px rgba(255,152,0,0.12);
 }
 
-/* Hiệu ứng đổ bóng khi hover ảnh */
-.widthR img:hover{
-    box-shadow: 0 5px 5px gray;  /* Đổ bóng xuống dưới */
+/* Ảnh trong aside */
+.widthR img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 14px rgba(33,150,243,0.12);
+    margin: 12px 0;
+    transition: box-shadow .22s, transform .22s;
 }
 
-/* Footer cuối trang */
-footer{
-    clear: both;               /* Dọn float để footer nằm dưới */
-    min-height: 50px;          /* Chiều cao tối thiểu */
-    background-color: lightcyan; /* Nền xanh nhạt */
-    text-align: center;        /* Căn giữa chữ */
-    line-height: 50px;         /* Căn giữa theo chiều dọc */
-    border-top: #8DD8F7;       /* Đường viền trên màu xanh nhạt */
+.widthR img:hover {
+    box-shadow: 0 10px 28px rgba(33,150,243,0.17);
+    transform: scale(1.03) rotate(-1deg);
+}
+
+/* Footer */
+footer {
+    clear: both;
+    min-height: 52px;
+    background: linear-gradient(90deg, #b2ebf2 0%, #81d4fa 100%);
+    text-align: center;
+    line-height: 52px;
+    font-size: 18px;
+    color: #1976d2;
+    border-top: 3px solid #4fc3f7;
+    box-shadow: 0 -2px 12px rgba(33,150,243,0.08);
+    border-radius: 0 0 18px 18px;
+    margin-bottom: 14px;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .container { width: 98vw; }
+    .content { flex-direction: column; gap: 0; }
+    .content article, .content aside { width: 100%; min-height: 400px; }
+    .content aside { margin-top: 24px; }
+}
+@media (max-width: 700px) {
+    .container { width: 100vw; border-radius: 0;}
+    .content { padding: 8px; }
+    .content article, .content aside { padding: 10px; }
+    .menu ul li a { font-size: 16px; padding: 0 10px; }
+    .menu ul ul { width: 95vw; left: -18vw;}
 }
